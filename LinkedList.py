@@ -120,4 +120,5 @@ ll.display()
 ll.delete_alternate()
 
 print("\n After deleting alternate nodes:")
+#ll.display()
 ll.display()
