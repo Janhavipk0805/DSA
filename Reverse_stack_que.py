@@ -16,9 +16,10 @@ class stack:
             print("Stack is empty")
         else:
             temp=self.top
-            print("Poped element: ",temp.data)  
+            popped_data= temp.data
             self.top=self.top.next
             temp=None
+            return popped_data
     def reverse(self):
         temp=self.top
         while temp:
@@ -31,6 +32,55 @@ class stack:
         while temp:
             print(temp.data)
             temp=temp.next
+
+#Linear Queue
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+        
+    
+    def enqueue(self, element):
+        new_node = Node(element)
+        if self.rear is None:
+            self.front = self.rear = new_node
+            return
+        self.rear.next = new_node
+        self.rear = new_node
+        
+    
+    def dequeue(self):
+        if self.rear==None:
+            return "Queue is empty"
+        temp = self.front
+        self.front = temp.next
+        if self.front is None:
+            self.rear = None
+        return temp.data
+    
+    def printQueue(self):
+        temp = self.front
+        while temp:
+            print(temp.data, end=" ")
+            temp = temp.next
+        print()
+    def reverse_stack(s1):
+        q1 = myQueue()
+        while not s1.isempty(): # pop from stack and enqueue to queue
+          q1.enqueue(Node(s1.pop()))
+        q1.print()
+# Create a queue
+myQueue = Queue()
+myQueue.enqueue('A')
+myQueue.enqueue('B')
+myQueue.enqueue('C')
+print("Queue: ", end="")
+myQueue.printQueue()
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
 st=stack()
 st1=stack()
 st.push(Node(10))
